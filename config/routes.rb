@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'embedded#index'
 
   get "embedded/signing"
   get "embedded/requesting"
   get "embedded/template_requesting"
   get "embedded/oauth_demo"
-  get "home/index"
 
   post 'embedded/signing', to: 'embedded#create_signing'
   post 'embedded/requesting', to: 'embedded#create_requesting'
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
   post 'oauth', to:'oauth#index'
   get 'oauth', to:'oauth#index'
   
-  resources :home do
+  resources :embedded do
     collection do
       post 'callbacks'
     end
