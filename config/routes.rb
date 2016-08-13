@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'embedded#index'
+  root 'home#index'
 
   get "embedded/signing"
   get "embedded/requesting"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post 'oauth', to:'oauth#index'
   get 'oauth', to:'oauth#index'
   
-  resources :embedded do
+  resources :home do
     collection do
       post 'callbacks'
     end
