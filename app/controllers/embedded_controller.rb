@@ -7,6 +7,7 @@ class EmbeddedController < ApplicationController
     begin
       embedded_request = HelloSign.create_embedded_signature_request(
         :test_mode => 1,
+        :client_id=> 'b0350215c8258b386d0efd63bc6d9e18',
         :title => 'NDA with Acme Co.',
         :subject => 'The NDA we talked about',
         :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
@@ -22,7 +23,7 @@ class EmbeddedController < ApplicationController
 
       embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
       @sign_url = embedded.sign_url
-     
+
       render 'signing'
     rescue => e
       render :text => e
