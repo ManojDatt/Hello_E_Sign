@@ -1,0 +1,31 @@
+<h1> Embedded Request Demo
+</h1>
+<div class="embeddedSigning">
+  <p class="intro"> Request signatures for documents directly from your website with HelloSign's embedded request capability.</p>
+
+  <br>
+
+  
+  <div class="part">
+    <h2> Try it out</h2>
+
+    <%= form_tag('requesting', :method => :POST, :multipart => true, :class => 'form-horizontal') do%>
+      <div class="control-group">
+        <label class="control-label" for='files[]'> File
+        <div class="controls">
+          <input multiple="multiple" name="files[]" type="file">
+
+      <div class="control-group">
+        <label class="control-label" for='requester_email_address'> Your email
+        <div class="controls">
+          <input type='email' name='requester_email_address' placeholder='Your email'>
+      <br>
+
+      <div class="control-group">
+       
+        <input class="btn btn-primary" id="startButton" type="submit" value="Launch Demo">
+        <% end%>
+
+<%if @sign_url %>
+  <%= render 'embedded_view'%>
+  <% end%>

@@ -1,0 +1,16 @@
+Embedded View
+<%=HelloSign.client_id%>
+<script type="text/javascript" src="//s3.amazonaws.com/cdn.hellofax.com/js/embedded.js">
+</script>
+<script type="text/javascript">
+
+  HelloSign.init("#{HelloSign.client_id}");
+  HelloSign.open({
+      url: "#{raw @sign_url}",
+      allowCancel: true,
+      skipDomainVerification: true,
+      messageListener: function(eventData) {
+         // do someting
+      }
+  });
+</script>
